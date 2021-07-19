@@ -5,6 +5,7 @@ let Schema = mongoose.Schema
 const modelSchema = new Schema( {
     key: String
 } );
+modelSchema.set('timestamps', true)
 const Model = mongoose.model('Model', modelSchema);
 export default Model
 

@@ -7,14 +7,14 @@ import listEndpoints from 'express-list-endpoints'
 import router from './routes/index.js'
 
 const MONGO_HOST = process.env.MONGO_HOST || 'localhost'  
-
-mongoose.connect(`mongodb://${MONGO_HOST}:27017/db`, {
+const DB_CONNECTION_STRING = process.env.DB_CONNECTION_STRING || `mongodb://${MONGO_HOST}:27017/db`
+mongoose.connect( DB_CONNECTION_STRING, {
   useUnifiedTopology: true,
   useNewUrlParser: true
 })  
 
 const db = mongoose.connection  
-
+console.clear()
 db.once('open', () => {  // Check connection
   console.log('Connected to MongoDB')  
 })  
