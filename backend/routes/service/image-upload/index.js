@@ -15,7 +15,7 @@ router
   .route("/")
   .post(
     multer({ storage: cloudinaryStorageCovers }).single("cover"),
-    (req, res) => {
+    async (req, res) => {
       res.send(req.file.path);
     }
   );

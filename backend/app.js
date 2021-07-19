@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import { exec } from "child_process";
 import listEndpoints from "express-list-endpoints";
+import cors from "cors";
 
 import router from "./routes/index.js";
 
@@ -29,6 +30,25 @@ db.on("error", (err) => {
 // Initialize
 const app = express();
 app.use("/api", router); // Use 'api' as base url
+
+const whitelist = [process.env.FRONTEND_URL, process.env.FRONTEND_PROD_URL];
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (
+        !origin ||
+        whitelist.indexOf(origin) !== -1 ||
+        origin.startsWith(process.env.FRONTEND_PREVIEW_URL)
+      ) {
+        // origin is in the list therefore it is allowed
+        callback(null, true);
+      } else {
+        // origin is not in the list then --> ERROR
+        callback(new Error("Not allowed by cors!"));
+      }
+    },
+  })
+);
 const domainUrl =
   process.env.NODE_ENV === "production"
     ? "http://localhost:5000"
