@@ -29,8 +29,6 @@ db.on("error", (err) => {
 
 // Initialize
 const app = express();
-app.use("/api", router); // Use 'api' as base url
-
 const whitelist = [process.env.FRONTEND_URL, process.env.FRONTEND_PROD_URL];
 app.use(
   cors({
@@ -49,6 +47,9 @@ app.use(
     },
   })
 );
+
+app.use("/api", router); // Use 'api' as base url
+
 const domainUrl =
   process.env.NODE_ENV === "production"
     ? "http://localhost:5000"
