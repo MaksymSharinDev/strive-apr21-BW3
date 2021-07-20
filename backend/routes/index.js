@@ -1,17 +1,18 @@
 
 import express from "express";
 const router = express.Router();
-
 router.use( express.json() )
 
-import serviceRouter from './service/index.js'
+import experienceRouter from './experience/index.js'
+import profileRouter from './profile/index.js'
+import blogPostsRouter from "./blogpost/index.js";
+import imageRouter from "./image-upload/index.js";
 
-// noinspection JSCheckFunctionSignatures
-router.use( '/v1/service', serviceRouter)
-/*
 
-router.use('/service', serviceRouter)
- */
 
+router.use( '/v1/experience', experienceRouter)
+router.use( '/v1/profile', profileRouter)
+router.use( '/v1/blogpost', blogPostsRouter);
+router.use( '/v1/image-upload', imageRouter);
 
 export default router
