@@ -1,5 +1,5 @@
 import express from "express";
-import PostModel from "./schema.js";
+import PostModel from "../../models/Blogpost.js";
 
 const router = express.Router();
 
