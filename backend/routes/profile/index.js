@@ -44,5 +44,21 @@ router
       console.log(error);
     }
   });
+router.route('/:id/picture').put(async (req, res) => {
+  console.log(req.params.id);
+  try {
+    let updateImg = await ProfileModel.findById(req.params.id);
+    // console.log(updateImg);
+    await ProfileModel.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+
+    //  await ProfileModel.save();
+    const foo = await ProfileModel.find();
+    res.status(200).send(foo);
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 export default router;
