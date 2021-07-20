@@ -39,7 +39,7 @@ router
         new: true,
         runValidators: true,
       });
-      res.status(200).send(`Post with ID ${post._id} has been updated!`);
+      res.status(200).send(post);
     } catch (error) {
       console.log(error);
     }
