@@ -1,5 +1,5 @@
 import express from 'express';
-import ProfileModel from '../../../models/Profile.js';
+import ProfileModel from '../../models/Profile.js';
 const router = express.Router();
 router
   .route('/')
