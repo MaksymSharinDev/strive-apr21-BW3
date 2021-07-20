@@ -1,10 +1,8 @@
 import express from 'express';
-import ProfileModel from '../../../models/Profile.js';
+import ProfileModel from '../../models/Profile.js';
 const router = express.Router();
-router
-  .route('/')
-  // GET ALL USERS
-  .get(async (req, res) => {
+// GET ALL USERS
+router.route('/').get(async (req, res) => {
     try {
       const profiles = await ProfileModel.find();
       res.status(200).send(profiles);
