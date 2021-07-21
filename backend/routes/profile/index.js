@@ -1,13 +1,11 @@
 import express from 'express';
-<<<<<<< HEAD:backend/routes/service/profile/index.js
-import ProfileModel from '../../../models/Profile.js';
-import html_to_pdf from 'html-pdf-node';
-=======
 import ProfileModel from '../../models/Profile.js';
->>>>>>> 6025b66bbac05209c014097ceb52e20600a17ad8:backend/routes/profile/index.js
+import html_to_pdf from 'html-pdf-node';
 const router = express.Router();
 // GET ALL USERS
-router.route('/').get(async (req, res) => {
+router
+  .route('/')
+  .get(async (req, res) => {
     try {
       const profiles = await ProfileModel.find();
       res.status(200).send(profiles);
@@ -36,15 +34,19 @@ router
     try {
       const profile = await ProfileModel.findById(req.params.id);
       res.status(200).send(profile);
+      console.log('cx');
     } catch (error) {
       console.log(error);
     }
   })
-  .patch(async (req, res) => {
+  .put(async (req, res) => {
     try {
-      await ProfileModel.findByIdAndUpdate(req.params.id, req.body);
-      await ProfileModel.save();
-      res.status(200).send(ProfileModel);
+      const data = await ProfileModel.findByIdAndUpdate(
+        req.params.id,
+        req.body
+      );
+      // await ProfileModel.save();
+      res.status(200).send(data);
     } catch (error) {
       console.log(error);
     }
@@ -80,9 +82,6 @@ router.route('/:id/CV').get(async (req, res) => {
     };
     getPdf();
 
-    const x = async(html_to_pdf.generatePdfs(file, options)).await((output) => {
-      return output; // PDF Buffer:- [{url: "https://example.com", name: "example.pdf", buffer: <PDF buffer>}]
-    });
     console.log(getPdf);
     res.send(data);
   } catch (error) {
