@@ -9,7 +9,7 @@ import router from './routes/index.js'
 
 const MONGO_HOST = process.env.MONGO_HOST || 'localhost'
 const DB_CONNECTION_STRING = process.env.DB_CONNECTION_STRING || `mongodb://${MONGO_HOST}:27017/db`
-mongoose.connect( DB_CONNECTION_STRING, {
+await mongoose.connect( DB_CONNECTION_STRING, {
   useUnifiedTopology: true,
   useNewUrlParser: true
 })  
