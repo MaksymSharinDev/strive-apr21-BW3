@@ -1,0 +1,25 @@
+.icon:hover {
+  cursor: pointer;
+  background-color: var(--hover-hl);
+}
+
+.icon {
+  height: 40px;
+  width: 40px;
+  min-width: auto;
+  color: var(--main-grey-color);
+}
+
+.modal {
+  width: 60vw;
+  height: 60vh;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+  border: 1px solid black;
+  border-radius: 5rem;
+  background-color: rgb(184, 183, 183);
+}

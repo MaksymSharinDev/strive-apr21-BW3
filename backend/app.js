@@ -28,7 +28,8 @@ db.on('error', (err) => {  // Check for DB errors
 const app = express();
 const whitelist = [process.env.FRONTEND_URL, process.env.FRONTEND_PROD_URL];
 app.use(
-  cors({
+  cors(/*
+      {
     origin: (origin, callback) => {
       if (
         !origin ||
@@ -42,7 +43,7 @@ app.use(
         callback(new Error("Not allowed by cors!"));
       }
     },
-  })
+  }*/)
 );
 
 app.use("/api", router); // Use 'api' as base url

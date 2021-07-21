@@ -2,7 +2,7 @@ import express from "express";
 import multer from "multer";
 import { v2 as cloudinary } from "cloudinary";
 import { CloudinaryStorage } from "multer-storage-cloudinary";
-
+import dotenv from 'dotenv'; dotenv.config()
 const router = express.Router();
 
 const cloudinaryStorageCovers = new CloudinaryStorage({
@@ -11,6 +11,7 @@ const cloudinaryStorageCovers = new CloudinaryStorage({
     folder: "blog-post",
   },
 });
+
 router
   .route("/")
   .post(

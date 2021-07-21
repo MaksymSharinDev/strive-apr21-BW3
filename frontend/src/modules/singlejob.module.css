@@ -1,0 +1,25 @@
+.edit:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 255, 0.336);
+}
+
+.edit {
+  border: 1px solid black;
+  border-radius: 2rem;
+  display: inline;
+  padding: 0.3rem 1rem;
+}
+
+.modal {
+  width: 60vw;
+  height: fit-content;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+  border: 1px solid black;
+  border-radius: 5rem;
+  background-color: rgb(184, 183, 183);
+}

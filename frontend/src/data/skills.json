@@ -1,0 +1,57 @@
+{
+  "skills": {
+    "endorsements": [
+      {
+        "name": "HTML5",
+        "passed": true
+      },
+      {
+        "name": "Cascading Style Sheets (CSS)",
+        "passed": false
+      }
+    ],
+
+    "mainSkills": [
+      "Turning wine into a piss",
+      "Turning beer into piss",
+      "Turning any kind of booze into piss"
+    ],
+
+    "industryKnowledge": [
+      "Analytical Skills",
+      "Research",
+      "Responsive Web Design",
+      "Information Technology"
+    ],
+
+    "toolsTechnologies": [
+      "Microsoft Excel",
+      "Vuex",
+      "Vue",
+      "HTML",
+      "Microsoft Office",
+      "Microsoft Word",
+      "Microsoft Visual Studio Code",
+      "GitHub",
+      "Linux",
+      "Adobe Photoshop",
+      "CSS Flexbox",
+      "Bootstrap",
+      "Nuxt.js",
+      "Git"
+    ],
+
+    "interpersonalSkills": [
+      "Customer Service",
+      "Communication",
+      "Collaborative Problem Solving",
+      "Creative Problem Solving",
+      "Problem Solving",
+      "Easily Adaptable",
+      "Flexible Schedule"
+    ],
+
+    "languages": ["Hebrew", "English", "Kiswahili", "Zulu"],
+    "otherSkills": ["Foo", "Buzz", "Bar"]
+  }
+}

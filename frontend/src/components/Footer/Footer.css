@@ -1,0 +1,57 @@
+ footer  .container-fluid img {
+    width: 90px;
+    margin-left: 15px;
+}
+ footer  .list-group-item {
+    border: none;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: rgb(107, 105, 105);
+    padding: 0.4rem 0;
+}
+
+
+ footer  .container-fluid .row:nth-child(2) {
+    flex-wrap: nowrap;
+    justify-content: start;
+}
+ footer  .container-fluid .row:nth-child(3) p {
+    color: rgb(107, 105, 105);
+    margin-left: 15px;
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+ footer  .container-fluid svg {
+    border-radius: 50%;
+    color: rgb(95, 94, 94);
+    font-size: 20px;
+    margin: 8px 10px 0 0;
+}
+
+ footer  .container .questions {
+    width: 250px;
+}
+
+ footer  .container .questions .list-group-item:first-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+ footer  .container .questions .list-group-item:last-child {
+    padding-top: 0;
+    margin-top: 0;
+}
+ footer  .container .settings .list-group-item:first-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+ footer  .container .settings .list-group-item:last-child {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+
+ footer  .container .languages label {
+    font-size: 13px;
+    margin: 0;
+}
