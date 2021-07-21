@@ -1,0 +1,69 @@
+.navbar {
+  text-align: center;
+  align-items: center;
+  line-height: 20px;
+  padding: 1.5rem 0 1.5rem 0;
+}
+
+.navbar img {
+  width: 50px;
+}
+
+.navbar .form-control {
+  background-color: #eef3f8;
+  border: none;
+}
+
+.navbar .searchbar {
+  display: flex;
+  background-color: #eef3f8;
+}
+.navbar .searchbar svg {
+  background-color: #eef3f8;
+  line-height: 1.4;
+  text-align: center;
+  margin: 12px 0 10px 20px;
+}
+
+.navbar-nav div {
+  margin: 0 7px;
+  width: 80px;
+}
+.navbar-nav .nav-link {
+  color: gold;
+}
+.navbar-nav .myprofile {
+  margin: 0 7px 0 7px;
+  padding-right: 10px;
+}
+
+.navbar-nav svg {
+  font-size: 1.5em;
+  margin: 0 10px;
+  color: rgb(149, 147, 147);
+  padding: 0 0 3px;
+  max-height: 23px;
+}
+.navbar-nav svg:hover {
+  font-size: 1.5em;
+  padding: 0;
+  margin: 0;
+  color: #191919;
+}
+
+.navbar-nav a {
+  font-size: 0.7em;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar .myprofile {
+  border-right: 1px solid rgb(230, 229, 229);
+}
+.navbar .myprofile .dropdown a {
+  margin-right: 18px;
+}
+.navbar .myprofile img {
+  width: 2rem;
+  border-radius: 50%;
+}

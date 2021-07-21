@@ -1,11 +1,13 @@
 import express from 'express';
+<<<<<<< HEAD:backend/routes/service/profile/index.js
 import ProfileModel from '../../../models/Profile.js';
 import html_to_pdf from 'html-pdf-node';
+=======
+import ProfileModel from '../../models/Profile.js';
+>>>>>>> 6025b66bbac05209c014097ceb52e20600a17ad8:backend/routes/profile/index.js
 const router = express.Router();
-router
-  .route('/')
-  // GET ALL USERS
-  .get(async (req, res) => {
+// GET ALL USERS
+router.route('/').get(async (req, res) => {
     try {
       const profiles = await ProfileModel.find();
       res.status(200).send(profiles);

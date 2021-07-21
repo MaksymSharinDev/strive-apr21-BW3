@@ -1,0 +1,28 @@
+{
+  "activities": [
+    {
+      "id": 1,
+      "type": "commented",
+      "preview": "Lorem ipsum blah blah comment here",
+      "userPic": "https://picsum.photos/200/200?random=1"
+    },
+    {
+      "id": 2,
+      "type": "replied to comment",
+      "preview": "Lorem ipsum blah blah comment here",
+      "userPic": "https://picsum.photos/200/200?random=2"
+    },
+    {
+      "id": 3,
+      "type": "commented",
+      "preview": "Lorem ipsum blah blah comment here",
+      "userPic": "https://picsum.photos/200/200?random=3"
+    },
+    {
+      "id": 4,
+      "type": "replied to comment",
+      "preview": "Lorem ipsum blah blah comment here",
+      "userPic": "https://picsum.photos/200/200?random=4"
+    }
+  ]
+}

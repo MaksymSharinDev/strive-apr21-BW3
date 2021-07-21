@@ -1,0 +1,13 @@
+
+DONE pages Path ./src/Pages
+DONE Footer,Navbar must be renamed and moved from ./src/Pages/Profile/ to ./src/Components/
+DONE ExperienceContainer is expected to be in src/Pages/Profile folder because is not expected to be share across pages
+DONE ExperienceContainer not semantic name and ExperienceContainer must be all in same folder
+TODO modules can be put along jsx file where is use for make import syntax like ./file.module.css ?
+TODO: Unify for Consistency reasons the mixed use of \
+      style={{rule: 'string'}}, className={'boostrap-class'} , file.module.css \
+TODO: Common Styles Must be Centralized in App.css
+TODO: Component must have SRP, component generalization when 3+ elements
+TODO: Bootstrap classes Must be used first,\
+      css common styles for second,\
+      ./file.css for details
