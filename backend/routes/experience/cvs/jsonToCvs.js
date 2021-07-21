@@ -8,4 +8,5 @@ export const sendCVS = (res, fileName, fields , data) => {
     res.header('Content-Type', 'text/csv');
     res.attachment(fileName);
     return res.send(csv);
+
 }

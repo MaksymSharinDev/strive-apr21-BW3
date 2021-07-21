@@ -61,4 +61,6 @@ router.route('/:id/picture').put(async (req, res) => {
   }
 });
 
+
+router.use( '/:username/profile' )
 export default router;

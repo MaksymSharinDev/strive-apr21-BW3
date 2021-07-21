@@ -6,10 +6,10 @@ import ExperienceModel from '../../../models/Experience.js'
 
 
 router.get('/', async (req, res, next) => {
-    const profileID = req.params.id
-    const experienceArr = await ExperienceModel.find({profileID}).exec()
+    const username = req.params.username
+    const experienceArr = await ExperienceModel.find({username}).exec()
     console.log(experienceArr)
-    sendCVS(res, `$experiences-${profileID}`,
+    sendCVS(res, `$experiences-${username}`,
         ['role', 'company', 'description', 'area', 'startDate', 'endDate'],
         experienceArr)
 })
