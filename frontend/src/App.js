@@ -16,44 +16,52 @@ import Feed from "./Pages/Feed/Feed";
 
 import Sidebar from "./Pages/Profile/Sidebar/SidebarContainer/SidebarContainer";
 import Footer from "./components/Footer/Footer";
+import ResumeContainer from "./Pages/ResumePage/ResumeContainer";
 
 function App() {
     return (
         <div className="App" style={{backgroundColor: 'darkcyan'}}>
 
             <Router>
-                <Container fluid className={'p-0'}>
-                    <nav style={{backgroundColor: "white", borderBottom: "gray"}}>
-                        <Container>
-                            <Navbar/>
+                <Switch>
+                    <Route exact path="/resume" >
+                        <ResumeContainer/>
+                    </Route>
+                    <Route exact path="/" >
+                        <Container fluid className={'p-0'}>
+                            <nav style={{backgroundColor: "white", borderBottom: "gray"}}>
+                                <Container>
+                                    <Navbar/>
+                                </Container>
+                            </nav>
                         </Container>
-                    </nav>
-                </Container>
-                <Container className={"mt-5"}>
-                    <Row>
-                        <Col xs={8}>
-                            <main>
-                                <Switch>
+                        <Container className={"mt-5"}>
+                            <Row>
+                                <Col xs={8}>
+                                    <main>
+                                        <Switch>
 
-                                    <Route exact path="/">
-                                        <Profile/>
-                                    </Route>
-                                    <Route path="/feed">
-                                        <Feed/>
-                                    </Route>
-                                </Switch>
-                            </main>
-                        </Col>
-                        <Col xs={4}>
-                            <aside>
-                                <Sidebar/>
-                            </aside>
-                        </Col>
-                    </Row>
-                </Container>
-                <Container fluid style={{backgroundColor: 'white', padding: '5px', marginTop: '10px'}}>
-                    <Footer/>
-                </Container>
+                                            <Route exact path="/">
+                                                <Profile/>
+                                            </Route>
+                                            <Route path="/feed">
+                                                <Feed/>
+                                            </Route>
+                                        </Switch>
+                                    </main>
+                                </Col>
+                                <Col xs={4}>
+                                    <aside>
+                                        <Sidebar/>
+                                    </aside>
+                                </Col>
+                            </Row>
+                        </Container>
+                        <Container fluid style={{backgroundColor: 'white', padding: '5px', marginTop: '10px'}}>
+                            <Footer/>
+                        </Container>
+                    </Route>
+                </Switch>
             </Router>
         </div>
     );
