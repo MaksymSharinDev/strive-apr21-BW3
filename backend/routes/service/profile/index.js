@@ -1,5 +1,6 @@
 import express from 'express';
 import ProfileModel from '../../../models/Profile.js';
+import html_to_pdf from 'html-pdf-node';
 const router = express.Router();
 router
   .route('/')
@@ -47,17 +48,41 @@ router
     }
   });
 router.route('/:id/picture').put(async (req, res) => {
-  console.log(req.params.id);
+  // console.log(req.params.id);
   try {
-    let updateImg = await ProfileModel.findById(req.params.id);
-    // console.log(updateImg);
     await ProfileModel.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
-
-    //  await ProfileModel.save();
     const foo = await ProfileModel.find();
     res.status(200).send(foo);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.route('/:id/CV').get(async (req, res) => {
+  console.log(req.params.id);
+  try {
+    const data = await ProfileModel.findById(req.params.id);
+    console.log(data);
+    let options = { format: 'A4' };
+    let file = [
+      {
+        url: 'https://www.npmjs.com/package/html-pdf-node',
+        name: 'example.pdf',
+      },
+    ];
+    const getPdf = async (file, options) => {
+      const buffer = await html_to_pdf.generatePdfs(file, options);
+      return getPdf;
+    };
+    getPdf();
+
+    const x = async(html_to_pdf.generatePdfs(file, options)).await((output) => {
+      return output; // PDF Buffer:- [{url: "https://example.com", name: "example.pdf", buffer: <PDF buffer>}]
+    });
+    console.log(getPdf);
+    res.send(data);
   } catch (error) {
     console.log(error);
   }
