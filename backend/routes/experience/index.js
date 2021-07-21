@@ -2,8 +2,8 @@ import express from 'express'
 
 const router = express.Router();
 import ExperienceModel from '../../models/Experience.js'
-
-
+import pictureRouter from './Picture/index.js' ;
+import cvsRouter from './cvs/index.js' ;
 
 router.post('/', async (req, res) => {
     //TODO req validation
@@ -85,6 +85,7 @@ router.delete('/:id', async (req, res) => {
         res.status(500).send(e)
     }
 })
-
+router.use('/:id/picture', pictureRouter )
+router.use('/:id/cvs', cvsRouter )
 export default router
 

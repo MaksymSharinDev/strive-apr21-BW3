@@ -17,6 +17,8 @@
     "express": "^4.17.1",
     "express-list-endpoints": "^5.0.0",
     "express-session": "^1.17.0",
+    "json2csv": "^5.0.6",
+    "json2csv-stream": "^0.1.4",
     "mongoose": "^5.10.9",
     "mongoose-type-url": "^2.1.0",
     "multer": "^1.4.2",
@@ -26,6 +28,7 @@
     "rehype-parse": "^7.0.1",
     "rehype-remark": "^8.0.0",
     "remark-stringify": "^8.1.1",
+    "stream-json": "^1.7.2",
     "unified": "^9.2.0"
   },
   "devDependencies": {

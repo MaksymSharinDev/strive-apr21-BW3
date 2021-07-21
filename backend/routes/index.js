@@ -8,8 +8,6 @@ import profileRouter from './profile/index.js'
 import blogPostsRouter from "./blogpost/index.js";
 import imageRouter from "./image-upload/index.js";
 
-
-
 router.use( '/v1/experience', experienceRouter)
 router.use( '/v1/profile', profileRouter)
 router.use( '/v1/blogposts', blogPostsRouter);

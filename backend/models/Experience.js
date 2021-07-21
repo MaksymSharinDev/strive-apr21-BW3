@@ -26,7 +26,7 @@ const modelSchema = new Schema( {
     "company": String,
     "description": String,
     "area": String,
-    "username": String,
+    "profileID": String,
     "startDate": Date,
     "endDate": Date,
     "image": Url,
