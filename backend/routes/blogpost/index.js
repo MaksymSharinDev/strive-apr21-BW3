@@ -39,15 +39,15 @@ router
         new: true,
         runValidators: true,
       });
-      res.status(200).send(`Post with ID ${post._id} has been updated!`);
+      res.status(200).send(post);
     } catch (error) {
       console.log(error);
     }
   })
   .delete(async (req, res, next) => {
     try {
-      await PostModel.findByIdAndDelete(req.params.id);
-      res.status(200).send("post has been deleted!");
+      const post = await PostModel.findByIdAndDelete(req.params.id);
+      res.status(200).send(`"post with id of ${post._id} has been deleted!"`);
     } catch (error) {
       console.log(error);
     }

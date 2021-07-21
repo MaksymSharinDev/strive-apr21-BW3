@@ -50,9 +50,7 @@ const PostSchema = new Schema(
     },
     user: userSchema,
     image: {
-      // image upload I guess
       type: String,
-      required: true,
     },
   },
   {
