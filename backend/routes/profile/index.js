@@ -1,6 +1,8 @@
 import express from 'express';
 import ProfileModel from '../../models/Profile.js';
+import experienceRouter from './experience/index.js'
 const router = express.Router();
+
 // GET ALL USERS
 router.route('/').get(async (req, res) => {
     try {
@@ -62,5 +64,5 @@ router.route('/:id/picture').put(async (req, res) => {
 });
 
 
-router.use( '/:username/profile' )
+router.use( '/:username/experiences', experienceRouter )
 export default router;
