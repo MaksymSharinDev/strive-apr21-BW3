@@ -6,7 +6,7 @@ import ExperienceModel from '../../models/Experience.js';
 router.post('/', async (req, res) => {
   //TODO req validation
   //MOCK
-  req.params.username = req.params.username || 'test';
+  //req.params.username = req.params.username || 'test';
   try {
     const newExperienceObj = req.body;
     newExperienceObj.username = req.params.username;
