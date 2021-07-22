@@ -1,7 +1,7 @@
 import express from 'express'
 
 const router = express.Router({mergeParams: true});
-import ExperienceModel from '../../models/Experience.js'
+import ExperienceModel from '../../../models/Experience.js'
 import pictureRouter from './Picture/index.js' ;
 import cvsRouter from './cvs/index.js' ;
 
@@ -22,8 +22,6 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     //TODO implement Pagination
-    //MOCK
-    req.params.username = req.params.username ||  'test'
 
     try {
         const experienceArr =

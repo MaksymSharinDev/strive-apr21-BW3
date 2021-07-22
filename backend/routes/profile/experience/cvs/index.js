@@ -2,7 +2,7 @@ import express from 'express'
 import {sendCVS} from "./jsonToCvs.js";
 
 const router = express.Router({mergeParams: true});
-import ExperienceModel from '../../../models/Experience.js'
+import ExperienceModel from '../../../../models/Experience.js'
 
 
 router.get('/', async (req, res, next) => {

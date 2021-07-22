@@ -1,9 +1,9 @@
 import express from 'express'
-import ExperienceModel from '../../../models/Experience.js'
+import ExperienceModel from '../../../../models/Experience.js'
 
 import multer from "multer";
 import {CloudinaryStorage} from "multer-storage-cloudinary";
-import cloudinary from "../../../conf/cloudinary.js";
+import cloudinary from "../../../../conf/cloudinary.js";
 const router = express.Router({mergeParams: true});
 
 const cloudinaryStorageCovers = new CloudinaryStorage({

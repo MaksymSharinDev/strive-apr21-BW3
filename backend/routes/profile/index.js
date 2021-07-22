@@ -1,6 +1,6 @@
 import express from 'express';
 import ProfileModel from '../../models/Profile.js';
-import experienceRouter from '../experience/index.js'
+import experienceRouter from './experience/index.js'
 const router = express.Router();
 
 // GET ALL USERS
