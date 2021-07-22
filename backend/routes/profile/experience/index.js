@@ -65,8 +65,7 @@ router.put('/:id', async (req, res) => {
     }
 })
 router.delete('/:id', async (req, res) => {
-    //MOCK
-    req.params.username = req.params.username ||  'test'
+    //
 
     try {
         const isDeleted = !!
