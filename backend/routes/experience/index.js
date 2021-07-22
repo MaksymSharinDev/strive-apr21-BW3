@@ -1,6 +1,6 @@
 import express from 'express'
 
-const router = express.Router();
+const router = express.Router({mergeParams: true});
 import ExperienceModel from '../../models/Experience.js'
 import pictureRouter from './Picture/index.js' ;
 import cvsRouter from './cvs/index.js' ;
@@ -12,11 +12,6 @@ router.post('/', async (req, res) => {
     try {
         const newExperienceObj = req.body
         newExperienceObj.username = req.params.username
-        /*
-        console.log('Req is: ')
-        console.table(newExperienceObj)
-        console.log(new Array(36).fill('-').join(''))
-         */
         const {_id} = await ExperienceModel.create(newExperienceObj)
         res.status(201).send({_id})
     } catch (e) {
