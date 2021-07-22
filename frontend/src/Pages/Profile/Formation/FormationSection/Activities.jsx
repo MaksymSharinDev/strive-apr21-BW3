@@ -5,6 +5,7 @@ import styles from "../../../../modules/skills.module.css";
 
 const Activities = () => {
     const [activity, setActivity] = useState(activityList.activities);
+    //TODO CSS Consistency
     return (
         <Card>
             <Container>

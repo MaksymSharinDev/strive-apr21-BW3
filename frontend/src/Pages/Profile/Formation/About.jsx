@@ -46,6 +46,7 @@ const About = () => {
     });
     setShown(false);
   };
+  //TODO CSS Consistency
   return (
     <>
       <Card>

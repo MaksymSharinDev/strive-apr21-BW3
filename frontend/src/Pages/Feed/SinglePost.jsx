@@ -94,6 +94,7 @@ const SinglePost = ({ post }) => {
     setShown(false);
     window.location.reload();
   };
+    //TODO CSS Consistency
   return (
     <>
       <div>

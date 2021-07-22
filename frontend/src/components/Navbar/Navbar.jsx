@@ -42,7 +42,7 @@ export default class Navbar extends Component {
     };
     fetching();
   }
-
+  //TODO CSS Consistency
   render() {
     return (
       <>

@@ -4,6 +4,7 @@ import { Container, Row, Col, ListGroup, DropdownButton, Dropdown } from 'react-
 import { BsFillQuestionSquareFill } from "react-icons/bs";
 import { IoSettingsSharp } from "react-icons/io5";
 
+//TODO CSS Consistency
 export default class Footer extends Component {
     render() {
         return (

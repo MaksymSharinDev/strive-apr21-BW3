@@ -75,6 +75,7 @@ const PostEditor = () => {
     // window.location.reload();
   };
   return (
+      //TODO CSS Consistency
     <Card>
       <Card.Body>
         <div style={{ padding: "2rem" }}>

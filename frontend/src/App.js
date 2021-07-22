@@ -19,7 +19,9 @@ import Footer from "./components/Footer/Footer";
 
 
 function App() {
+    //TODO CSS Consistency
     return (
+
         <div className="App" style={{backgroundColor: 'darkcyan'}}>
 
             <Router>

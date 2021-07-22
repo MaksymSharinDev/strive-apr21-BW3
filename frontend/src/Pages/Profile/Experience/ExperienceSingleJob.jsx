@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form, Button, Spinner } from "react-bootstrap";
 import styles from "../../../modules/singlejob.module.css";
-const SingleJob = ({ job }) => {
+const SingleJob = ({ job , refreshExperiences}) => {
   const [isShown, setShown] = useState(false);
   const [exp, setExp] = useState(job);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -13,6 +13,7 @@ const SingleJob = ({ job }) => {
   };
 
   const handleSubmit = async () => {
+    /*
     let response = await fetch(
       `https://striveschool-api.herokuapp.com/api/profile/60c71dfc291930001560ab9a/experiences/${exp._id}`,
       {
@@ -26,29 +27,36 @@ const SingleJob = ({ job }) => {
       }
     );
     let data = await response.json();
+    */
+    const data = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/profile/:username/experiences/${job._id}`,
+        {
+          method: 'put',
+          contentType: 'application/json',
+          body: exp
+        }
+    ).then( data => data.json())
     let expID = data._id;
     setUploading(true);
-    const formData = new FormData();
-    formData.append("experience", selectedFile);
-    if (selectedFile !== null) {
-      await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/60c71dfc291930001560ab9a/experiences/${expID}/picture`,
-        {
-          method: "POST",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3MWRmYzI5MTkzMDAwMTU2MGFiOWEiLCJpYXQiOjE2MjM2NjIwNzcsImV4cCI6MTYyNDg3MTY3N30.S-4OzceDjWQt4-jFgqD0QsGS1neM4wsDD60vIc397hg",
-            // "Content-type": "api/uploadfile",
-          },
-          body: formData,
-        }
-      );
-    }
 
-    setTimeout(function () {
-      window.location.reload();
-    }, 2000); // i hope 2 sec will be enoughh to finish upload hehe
-    // window.location.reload();
+
+    if ( selectedFile !== undefined) {
+        const formData = new FormData();
+        formData.append("expPic", selectedFile);
+        const uploadPicResponse = await fetch(
+            `${process.env.REACT_APP_BACKEND_URL}/api/v1/profile/${'admin'}/experiences/${job._id}/picture`,
+            {
+                method: 'POST',
+                headers:{
+                    contentType: 'multipart/form-data'
+                },
+                body: formData
+            }
+        ).then( data => data.json());
+
+    }
+      refreshExperiences()
+      //TODO proper handle image update
   };
   const fileChange = async (e) => {
     setSelectedFile(e.target.files[0]);
@@ -56,19 +64,15 @@ const SingleJob = ({ job }) => {
 
   const handleDelete = async () => {
     await fetch(
-      `https://striveschool-api.herokuapp.com/api/profile/60c71dfc291930001560ab9a/experiences/${exp._id}`,
-      {
-        method: "DELETE",
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3MWRmYzI5MTkzMDAwMTU2MGFiOWEiLCJpYXQiOjE2MjM2NjIwNzcsImV4cCI6MTYyNDg3MTY3N30.S-4OzceDjWQt4-jFgqD0QsGS1neM4wsDD60vIc397hg",
-        },
-      }
-    );
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/profile/${'admin'}/experiences/${job._id}`,
+        {
+            method: 'delete'
+        }
+    ).then(data =>data.json())
     setShown(false);
     window.location.reload();
-  };
-
+  }
+    //TODO CSS Consistency
   return (
     <>
       <div style={{ display: "flex", justifyContent: "space-between" }}>

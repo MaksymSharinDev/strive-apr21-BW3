@@ -1,6 +1,6 @@
 import {Card, ListGroup, ListGroupItem} from "react-bootstrap";
 
-
+//TODO CSS Consistency
 const SettingsCard = ()=>
     (
         <>

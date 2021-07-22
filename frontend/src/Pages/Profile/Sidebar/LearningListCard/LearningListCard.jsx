@@ -1,5 +1,6 @@
 import {Card, Col, ListGroup, ListGroupItem, Row} from "react-bootstrap";
 
+//TODO CSS Consistency
 const LearningListCard = ()=>
     <Card >
         <Card.Body>

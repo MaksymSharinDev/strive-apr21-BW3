@@ -71,7 +71,7 @@ const Profile = (props) => {
                     setProfileData(data)
                 })
         }, [])
-
+    //TODO CSS Consistency
     return (
         <Row>
             <Col xs={3} style={{paddingTop: '5px'}}>

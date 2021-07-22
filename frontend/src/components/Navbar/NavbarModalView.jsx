@@ -37,7 +37,7 @@ const NavbarModalView = () => {
     // i hope 2 sec will be enoughh to finish upload hehe
     // window.location.reload();
   };
-
+  //TODO CSS Consistency
   return (
     <>
       <div className={styles.modal}>

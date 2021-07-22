@@ -1,5 +1,6 @@
 import styles from "../../../../modules/skills.module.css";
 const SingleSkillList = ({ skills, title }) => {
+    //TODO CSS Consistency
   return (
     <>
       <h3 className={styles.newSkill} style={{ marginTop: "2rem" }}>
