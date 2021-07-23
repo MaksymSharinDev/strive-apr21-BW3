@@ -10,7 +10,7 @@ const PDFButton = () => {
     return (
         <Button
 
-            href={`${process.env.REACT_APP_BACKEND_URL}/api/v1/profile/${_id}/CV`}>
+            href={`/api/v1/profile/${_id}/CV`}>
             download CV
         </Button>
     )

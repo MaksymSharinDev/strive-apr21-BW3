@@ -16,24 +16,6 @@ const SinglePost = ({ post }) => {
   };
 
   const handleSubmit = async () => {
-      /*
-    let response =
-    await fetch(
-      `https://striveschool-api.herokuapp.com/api/posts/${post._id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3MWRmYzI5MTkzMDAwMTU2MGFiOWEiLCJpYXQiOjE2MjM2NjIwNzcsImV4cCI6MTYyNDg3MTY3N30.S-4OzceDjWQt4-jFgqD0QsGS1neM4wsDD60vIc397hg",
-        },
-        body: JSON.stringify(individualPost),
-      }
-    );
-
-
-    let data = await response.json();
-    let postID = data._id; */
     setUploading(true);
     const formData = new FormData();
     formData.append("cover", selectedFile);
