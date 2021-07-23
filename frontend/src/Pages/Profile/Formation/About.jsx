@@ -5,26 +5,40 @@ import styles from "../../../modules/about.module.css";
 import { useState, useEffect } from "react";
 import AboutModal from "./AboutModal";
 import { BiOutline } from "react-icons/bi";
+
+const PDFButton = ({userID}) => {
+  console.log( userID )
+  return (
+      <Button
+          href={`/api/v1/profile/${userID}/CV`}>
+        download CV
+      </Button>
+  )
+}
+
 const About = () => {
-  const [bio, setBio] = useState("");
+  const [bio, setBio] = useState(" ");
+  const [userData, setUserData]  = useState({})
+  /*
+  _id, username,
+  name, surname, email,
+  bio, image, title, area,
+  createdAt, updatedAt,
+  */
+
   const [isLoading, setLoading] = useState(false);
   const [isShown, setShown] = useState(false);
   const [isExpanded, setExpanded] = useState(false);
-  //   const [input, setInput] = useState(bio);
+
   useEffect(() => {
     setBio("");
     setLoading(true);
     const fetching = async function () {
-      let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/me",
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3MWRmYzI5MTkzMDAwMTU2MGFiOWEiLCJpYXQiOjE2MjM2NjIwNzcsImV4cCI6MTYyNDg3MTY3N30.S-4OzceDjWQt4-jFgqD0QsGS1neM4wsDD60vIc397hg",
-          },
-        }
-      );
-      let userData = await response.json();
+      let data = await fetch(
+        "/api/v1/profile/"
+      ).then( d => d.json())
+      let userData = data.slice(-1)[0]
+      setUserData(userData)
       setBio(userData.bio);
       setLoading(false);
     };
@@ -39,8 +53,7 @@ const About = () => {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGM3MWRmYzI5MTkzMDAwMTU2MGFiOWEiLCJpYXQiOjE2MjM2NjIwNzcsImV4cCI6MTYyNDg3MTY3N30.S-4OzceDjWQt4-jFgqD0QsGS1neM4wsDD60vIc397hg",
+
       },
       body: JSON.stringify({ bio: bio }),
     });
@@ -50,7 +63,17 @@ const About = () => {
   return (
     <>
       <Card>
+        <div className={'d-flex flex-row justify-content-start align-content-center '}>
+          <img className={'mb-3'} src={userData.image}/>
+          <div className={'m-3'} >
+            <p >{userData.name} {userData.surname}</p>
+            <p >{userData.email} </p>
+          </div>
+
+
+        </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
+
           <h4>About</h4>
           <IconContext.Provider value={{ className: styles.icon }}>
             <div>
@@ -76,9 +99,10 @@ const About = () => {
           ) : bio.length > 150 && isExpanded ? (
             <p>{bio}</p>
           ) : (
-            ""
+              <p>{bio}</p>
           )}
         </div>
+        <PDFButton userID={ userData._id }/>
       </Card>
       {isShown && (
         <div className={styles.modal}>
