@@ -4,6 +4,7 @@ services:
   frontend:
     build:
       context: ./frontend
+    env_file: ./frontend/.env
     environment:
       EXPRESS_HOST: backend
 
