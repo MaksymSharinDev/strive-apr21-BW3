@@ -26,14 +26,14 @@ const PostEditor = () => {
     console.log(individualPost);
     if (selectedFile !== null) {
       let imageRaw = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/v1/image-upload`,
+        `/api/v1/image-upload`,
         {
           method: "POST",
           body: formData,
         }
       );
       const { url } = await imageRaw.json();
-      await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/blogposts`, {
+      await fetch(`/api/v1/blogposts`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -46,7 +46,7 @@ const PostEditor = () => {
 
       setUploading(false);
     } else {
-      await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/blogposts`, {
+      await fetch(`/api/v1/blogposts`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
