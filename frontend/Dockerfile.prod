@@ -3,7 +3,7 @@ WORKDIR /usr/src/frontend
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
+RUN npm run start
 
 FROM nginx
 COPY --from=builder /usr/src/frontend/build /usr/share/nginx/html
