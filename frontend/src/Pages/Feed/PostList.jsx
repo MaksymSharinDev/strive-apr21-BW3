@@ -15,7 +15,7 @@ const PostList = (props) => {
   ]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/blogposts`, {
+    fetch(`/api/v1/blogposts`, {
       method: "GET",
       headers: {
         // "Content-type": "application/json",
