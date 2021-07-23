@@ -41,7 +41,7 @@ const SinglePost = ({ post }) => {
 
     if (selectedFile !== null) {
       const imageRaw = await fetch(
-        `/api/v1/image-upload`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/image-upload`,
         {
           method: "POST",
           body: formData,
@@ -49,7 +49,7 @@ const SinglePost = ({ post }) => {
       );
       const { url } = await imageRaw.json();
       let updated = await fetch(
-        `/api/v1/blogposts/${post._id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/blogposts/${post._id}`,
         {
           method: "PUT",
           headers: {
@@ -64,7 +64,7 @@ const SinglePost = ({ post }) => {
       setShown(false);
     } else {
       let updated = await fetch(
-        `/api/v1/blogposts/${post._id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/blogposts/${post._id}`,
         {
           method: "PUT",
           headers: {
@@ -82,7 +82,7 @@ const SinglePost = ({ post }) => {
 
   const handleDelete = async () => {
     await fetch(
-      `/api/v1/blogposts/${post._id}`,
+      `${process.env.REACT_APP_BACKEND_URL}/api/v1/blogposts/${post._id}`,
       {
         method: "DELETE",
         headers: {
