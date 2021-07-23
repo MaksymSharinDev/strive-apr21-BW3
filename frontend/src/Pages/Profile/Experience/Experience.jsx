@@ -24,7 +24,7 @@ const Experience = () => {
         setExp([]);
         setLoading(true);
         const expData =
-            await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/profile/${'admin'}/experiences`)
+            await fetch(`/api/v1/profile/${'admin'}/experiences`)
                 .then(data => data.json())
         console.log(expData)
         setExp(expData)
@@ -51,7 +51,7 @@ const Experience = () => {
             })
         })()
         const createExpResponseObj = await fetch(
-            `${process.env.REACT_APP_BACKEND_URL}/api/v1/profile/${'admin'}/experiences`,
+            `/api/v1/profile/${'admin'}/experiences`,
             {
                 method: 'POST',
                 headers: {
@@ -65,7 +65,7 @@ const Experience = () => {
       const formData  = new FormData();
       formData.append('expPic' , selectedFile )
       const uploadPicResponse = await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}/api/v1/profile/${'admin'}/experiences/${expID}/picture`,
+          `/api/v1/profile/${'admin'}/experiences/${expID}/picture`,
           {
             method: 'POST',
             headers:{

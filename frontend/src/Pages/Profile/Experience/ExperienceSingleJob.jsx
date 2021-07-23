@@ -30,7 +30,7 @@ const SingleJob = ({job, refreshExperiences}) => {
         let data = await response.json();
         */
         const data = await fetch(
-            `${process.env.REACT_APP_BACKEND_URL}/api/v1/profile/:username/experiences/${job._id}`,
+            `/api/v1/profile/:username/experiences/${job._id}`,
             {
                 method: 'put',
                 contentType: 'application/json',
@@ -45,7 +45,7 @@ const SingleJob = ({job, refreshExperiences}) => {
             const formData = new FormData();
             formData.append("expPic", selectedFile);
             const uploadPicResponse = await fetch(
-                `${process.env.REACT_APP_BACKEND_URL}/api/v1/profile/${'admin'}/experiences/${job._id}/picture`,
+                `/api/v1/profile/${'admin'}/experiences/${job._id}/picture`,
                 {
                     method: 'POST',
                     headers: {
@@ -65,7 +65,7 @@ const SingleJob = ({job, refreshExperiences}) => {
 
     const handleDelete = async () => {
         await fetch(
-            `${process.env.REACT_APP_BACKEND_URL}/api/v1/profile/${'admin'}/experiences/${job._id}`,
+            `/api/v1/profile/${'admin'}/experiences/${job._id}`,
             {
                 method: 'delete'
             }
