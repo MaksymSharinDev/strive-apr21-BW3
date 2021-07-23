@@ -6,6 +6,8 @@ services:
       - "0.0.0.0:80:8080"
     environment:
       NODE_ENV: production
+      REACT_APP_BACKEND_URL: http://bw3apr21strive.ddns.net
+
 
   backend:
     environment:
