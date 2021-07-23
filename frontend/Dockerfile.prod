@@ -8,6 +8,6 @@ RUN npm run start
 FROM nginx
 COPY --from=builder /usr/src/frontend/build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/
-EXPOSE 80
+EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]
 
